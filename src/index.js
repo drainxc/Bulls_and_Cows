@@ -103,9 +103,9 @@ function cheakEvent() {
             round.innerHTML = `횟수 : ${roundNumber}`;
             if (strike == input) {
                 alert(`🎉축하드립니다!!🎉\n시도한 횟수 : ${roundNumber}`);
-            }
+            } // 숫자와 위치가 모두 맞았을 때
             strike = 0;
-            ball = 0;
+            ball = 0; // 스트라이크와 볼 초기화
         }
         else {
             alert('자릿수를 확인해주세요!');
