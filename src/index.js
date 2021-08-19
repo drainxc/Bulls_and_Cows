@@ -58,8 +58,8 @@ function startEvent() {
             sequence.innerHTML = '';
             for (let i = 0; i < input; i++) {
                 let randomNumber = getRandomIntInclusive(0, 8 - n)
-                num[i] = (initialValue[randomNumber]);
-                initialValue.splice(randomNumber, 1);
+                num[i] = (initialValue[randomNumber]); // 배열 넣기
+                initialValue.splice(randomNumber, 1); // 배열 자르기
                 console.log(num[i]);
                 n++;
             } // 숫자 랜덤
