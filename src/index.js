@@ -48,6 +48,9 @@ function cheakEvent() {
                 console.log(gameNumber[i]);
             }
         }
+        else {
+            alert('자릿수를 확인해주세요!');
+        }
     }
     else {
         alert('순서대로 입력해주세요.');
