@@ -2,6 +2,7 @@ const start = document.getElementById('start');
 const cheak = document.getElementById('cheak');
 const sequence = document.getElementById('sequence');
 const round = document.getElementById('round');
+const placeholder = document.getElementById('number').placeholder;
 
 let game = false;
 
@@ -56,6 +57,7 @@ function startEvent() {
         if (1 < input && input <= 9) {
             let n = 0;
             sequence.innerHTML = '';
+            document.getElementById('number').placeholder = `${input}자리 숫자를 입력해주세요.`;
             for (let i = 0; i < input; i++) {
                 let randomNumber = getRandomIntInclusive(0, 8 - n)
                 num[i] = (initialValue[randomNumber]); // 배열 넣기

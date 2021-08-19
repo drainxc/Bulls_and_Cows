@@ -6,3 +6,7 @@ main {
 #sequence {
     color: red;
 }
+
+#number {
+    width: 170px;
+}
