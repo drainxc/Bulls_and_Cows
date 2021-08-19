@@ -1,10 +1,10 @@
-const number = document.getElementById('number');
 const start = document.getElementById('start');
 const cheak = document.getElementById('cheak');
 const sequence = document.getElementById('sequence');
 
 let game = false;
 
+let number;
 let input;
 let num = [];
 let initialValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -33,7 +33,10 @@ function startEvent() {
 
 function cheakEvent() {
     if (game) {
-
+        number = document.getElementById('number').value;
+        if (10 ** (input - 1) <= number && 10 ** (input) > number) {
+            
+        }
     }
     else {
         alert('순서대로 입력해주세요.');
