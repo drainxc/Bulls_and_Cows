@@ -32,6 +32,7 @@ function compare() {
                 if (i != j) {
                     if (num[j] == gameNumber[i]) {
                         ball++;
+                        j = input;
                     }
                 }
             }
@@ -90,7 +91,13 @@ function cheakEvent() {
             }
             compare();
             const newDiv = document.createElement('div');
-            const newText = document.createTextNode(`${number} ${strike}S ${ball}B`);
+            let newText;
+            if (strike != 0 && ball != 0) {
+                newText = document.createTextNode(`${number} ${strike}S ${ball}B`);    
+            }
+            else {
+                newText = document.createTextNode(`${number} OUT`);
+            }
             newDiv.appendChild(newText);
             document.body.appendChild(newDiv);
             round.innerHTML = `횟수 : ${roundNumber}`;
