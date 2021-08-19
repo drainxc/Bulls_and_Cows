@@ -2,3 +2,7 @@ main {
     display: flex;
     justify-content: center;
 }
+
+#sequence {
+    color: red;
+}
