@@ -2,7 +2,6 @@ const start = document.getElementById('start');
 const cheak = document.getElementById('cheak');
 const sequence = document.getElementById('sequence');
 const round = document.getElementById('round');
-const placeholder = document.getElementById('number').placeholder;
 
 let game = false;
 
@@ -62,7 +61,6 @@ function startEvent() {
                 let randomNumber = getRandomIntInclusive(0, 8 - n)
                 num[i] = (initialValue[randomNumber]); // 배열 넣기
                 initialValue.splice(randomNumber, 1); // 배열 자르기
-                console.log(num[i]);
                 n++;
             } // 숫자 랜덤
             game = true; // 게임 시작
@@ -89,7 +87,6 @@ function cheakEvent() {
                     gameNumber[i] = parseInt((number % 10 ** n) / (10 ** (n - 1)));
                     n--;
                 } // 각 자릿수 배열에 넣기
-                console.log(gameNumber[i]);
             }
             compare(); //비교 함수 호출
             const newDiv = document.createElement('div'); // div 동적 생성
