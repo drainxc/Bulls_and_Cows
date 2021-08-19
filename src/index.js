@@ -8,9 +8,11 @@ let game = false;
 let number;
 let input;
 let roundNumber = 0;
+let strike = 0;
+let boll = 0;
 let gameNumber = [];
 let num = [];
-let initialValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let initialValue = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 round.innerHTML = `횟수 : ${roundNumber}`;
 
@@ -20,19 +22,37 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function compare() {
+    for (i = 0; i < input; i++) {
+        if (num[i] == gameNumber[i]) {
+            strike++;
+        }
+        else {
+
+        }
+    }
+    console.log(strike);
+}
+
 function startEvent() {
     if (!game) {
-        let n = 0;
-        sequence.innerHTML = '';
         input = document.getElementById('input').value;
-        for (let i = 0; i < input; i++) {
-            let randomNumber = getRandomIntInclusive(0, 9 - n)
-            num[i] = (initialValue[randomNumber]);
-            initialValue.splice(randomNumber, 1);
-            console.log(num[i]);
-            n++;
+        if (1 <= input && input <= 9) {
+            let n = 0;
+            sequence.innerHTML = '';
+            for (let i = 0; i < input; i++) {
+                let randomNumber = getRandomIntInclusive(0, 8 - n)
+                num[i] = (initialValue[randomNumber]);
+                initialValue.splice(randomNumber, 1);
+                console.log(num[i]);
+                n++;
+            }
+            game = true;
         }
-        game = true;
+        else {
+            alert('1~9까지 입력해주세요.');
+            sequence.innerHTML = '※';
+        }   
     }
 }
 
@@ -56,7 +76,8 @@ function cheakEvent() {
             const newText = document.createTextNode(number);
             newDiv.appendChild(newText);
             document.body.appendChild(newDiv);
-            round.innerHTML = `횟수 : ${roundNumber}`;
+            compare();
+            round.innerHTML = `횟수 : ${roundNumber} ${strike}S`;
         }
         else {
             alert('자릿수를 확인해주세요!');
