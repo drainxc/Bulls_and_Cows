@@ -47,6 +47,10 @@ function cheakEvent() {
                 }
                 console.log(gameNumber[i]);
             }
+            const newDiv = document.createElement('div');
+            const newText = document.createTextNode(number);
+            newDiv.appendChild(newText);
+            document.body.appendChild(newDiv);
         }
         else {
             alert('자릿수를 확인해주세요!');
