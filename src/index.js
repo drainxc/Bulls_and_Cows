@@ -92,15 +92,20 @@ function cheakEvent() {
             compare(); //비교 함수 호출
             const newDiv = document.createElement('div'); // div 동적 생성
             let newText;
-            if (strike != 0 && ball != 0) {
-                newText = document.createTextNode(`${number} ${strike}S ${ball}B`);    
+            if (strike == 0 && ball == 0) {
+                newText = document.createTextNode(`${number} OUT`);
             }
             else {
-                newText = document.createTextNode(`${number} OUT`);
+                newText = document.createTextNode(`${number} ${strike}S ${ball}B`);    
             } // 텍스트 넣기
             newDiv.appendChild(newText);
             document.body.appendChild(newDiv); // 텍스트 띄우기
             round.innerHTML = `횟수 : ${roundNumber}`;
+            if (strike == input) {
+                alert(`🎉축하드립니다!!🎉\n시도한 횟수 : ${roundNumber}`);
+            }
+            strike = 0;
+            ball = 0;
         }
         else {
             alert('자릿수를 확인해주세요!');
