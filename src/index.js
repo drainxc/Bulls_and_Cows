@@ -1,5 +1,7 @@
 const number = document.getElementById('number');
 const start = document.getElementById('start');
+const cheak = document.getElementById('cheak');
+const sequence = document.getElementById('sequence');
 
 let game = false;
 
@@ -16,6 +18,7 @@ function getRandomIntInclusive(min, max) {
 function startEvent() {
     if (!game) {
         let n = 0;
+        sequence.innerHTML = '';
         input = document.getElementById('input').value;
         for (let i = 0; i < input; i++) {
             let randomNumber = getRandomIntInclusive(0, 9 - n)
@@ -27,4 +30,16 @@ function startEvent() {
         game = true;
     }
 }
-    start.addEventListener('click', startEvent);
+
+function cheakEvent() {
+    if (game) {
+
+    }
+    else {
+        alert('순서대로 입력해주세요.');
+        sequence.innerHTML = '※';
+    }
+}
+
+start.addEventListener('click', startEvent);
+cheak.addEventListener('click', cheakEvent);
