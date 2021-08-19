@@ -6,6 +6,7 @@ let game = false;
 
 let number;
 let input;
+let gameNumber = [];
 let num = [];
 let initialValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -34,8 +35,18 @@ function startEvent() {
 function cheakEvent() {
     if (game) {
         number = document.getElementById('number').value;
+        let n = input - 1;
         if (10 ** (input - 1) <= number && 10 ** (input) > number) {
-            
+            for (let i = 0; i < input; i++) {
+                if (i == 0) {
+                    gameNumber[i] = parseInt(number / 10 ** n);
+                }
+                else {
+                    gameNumber[i] = parseInt((number % 10 ** n) / (10 ** (n - 1)));
+                    n--;
+                }
+                console.log(gameNumber[i]);
+            }
         }
     }
     else {
