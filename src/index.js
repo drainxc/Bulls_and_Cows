@@ -9,7 +9,7 @@ let number;
 let input;
 let roundNumber = 0;
 let strike = 0;
-let boll = 0;
+let ball = 0;
 let gameNumber = [];
 let num = [];
 let initialValue = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -34,10 +34,20 @@ function compare() {
     console.log(strike);
 }
 
+function inputEvent() {
+    input = document.getElementById('input').value;
+    if (input > 9) {
+        input = 9;
+    }
+    if (input < 0) {
+        input = 1
+    }
+    document.getElementById('input').value = input;
+}
+
 function startEvent() {
     if (!game) {
-        input = document.getElementById('input').value;
-        if (1 <= input && input <= 9) {
+        if (1 < input && input <= 9) {
             let n = 0;
             sequence.innerHTML = '';
             for (let i = 0; i < input; i++) {
@@ -51,6 +61,7 @@ function startEvent() {
         }
         else {
             alert('1~9까지 입력해주세요.');
+            document.getElementById('input').value = '';
             sequence.innerHTML = '※';
         }   
     }
@@ -72,12 +83,12 @@ function cheakEvent() {
                 }
                 console.log(gameNumber[i]);
             }
+            compare();
             const newDiv = document.createElement('div');
-            const newText = document.createTextNode(number);
+            const newText = document.createTextNode(`${number} ${strike}S ${ball}B`);
             newDiv.appendChild(newText);
             document.body.appendChild(newDiv);
-            compare();
-            round.innerHTML = `횟수 : ${roundNumber} ${strike}S`;
+            round.innerHTML = `횟수 : ${roundNumber}`;
         }
         else {
             alert('자릿수를 확인해주세요!');
