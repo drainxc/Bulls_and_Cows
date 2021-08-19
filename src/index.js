@@ -28,10 +28,15 @@ function compare() {
             strike++;
         }
         else {
-
+            for (let j = 0; j < input; j++) {
+                if (i != j) {
+                    if (num[j] == gameNumber[i]) {
+                        ball++;
+                    }
+                }
+            }
         }
     }
-    console.log(strike);
 }
 
 function inputEvent() {
