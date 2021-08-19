@@ -1,14 +1,18 @@
 const start = document.getElementById('start');
 const cheak = document.getElementById('cheak');
 const sequence = document.getElementById('sequence');
+const round = document.getElementById('round');
 
 let game = false;
 
 let number;
 let input;
+let roundNumber = 0;
 let gameNumber = [];
 let num = [];
 let initialValue = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+round.innerHTML = `횟수 : ${roundNumber}`;
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -35,8 +39,9 @@ function startEvent() {
 function cheakEvent() {
     if (game) {
         number = document.getElementById('number').value;
-        let n = input - 1;
         if (10 ** (input - 1) <= number && 10 ** (input) > number) {
+            let n = input - 1;
+            roundNumber++;
             for (let i = 0; i < input; i++) {
                 if (i == 0) {
                     gameNumber[i] = parseInt(number / 10 ** n);
@@ -51,6 +56,7 @@ function cheakEvent() {
             const newText = document.createTextNode(number);
             newDiv.appendChild(newText);
             document.body.appendChild(newDiv);
+            round.innerHTML = `횟수 : ${roundNumber}`;
         }
         else {
             alert('자릿수를 확인해주세요!');
